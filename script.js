@@ -40,3 +40,9 @@
                 }
             });
         }
+
+         // Clear History
+        const clearBtn = document.getElementById("clearBtn");
+        clearBtn.addEventListener("click", function () {
+            historyCard.innerHTML = "";
+        });
