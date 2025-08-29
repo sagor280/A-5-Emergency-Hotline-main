@@ -46,3 +46,25 @@
         clearBtn.addEventListener("click", function () {
             historyCard.innerHTML = "";
         });
+
+
+         // Copy Functionality
+const copyBtns = document.querySelectorAll(".copy-btn");
+let copyCount = 1;
+for (let copyBtn of copyBtns) {
+    copyBtn.addEventListener("click", function () {
+        const copyCountNum = document.getElementById("copyCount");
+        copyCountNum.innerText = copyCount + " Copy";
+        copyCount++;
+
+        let serviceNumber = copyBtn.parentNode.parentNode.children[3].innerText;
+        let inputTag = document.createElement("input");
+        document.body.appendChild(inputTag); 
+        inputTag.value = serviceNumber;
+        inputTag.select();
+        document.execCommand("copy");
+        document.body.removeChild(inputTag);
+
+        alert("নাম্বার কপি হয়েছে: " + serviceNumber);
+    });
+}
